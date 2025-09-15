@@ -1,0 +1,102 @@
+import { defineSlotRecipe } from '@chakra-ui/react'
+
+export const menuSlotRecipe = defineSlotRecipe({
+  className: 'chakra-menu',
+  slots: [
+    'arrow',
+    'arrowTip',
+    'content',
+    'contextTrigger',
+    'indicator',
+    'item',
+    'itemGroup',
+    'itemGroupLabel',
+    'itemIndicator',
+    'itemText',
+    'positioner',
+    'separator',
+    'trigger',
+    'triggerItem',
+    'itemCommand',
+  ],
+  base: {
+    content: {
+      minW: '160px',
+      outline: 0,
+      bg: 'grey.0',
+      border: '1px solid',
+      borderColor: 'grey.2',
+      borderRadius: '10px',
+      boxShadow:
+        '0 20px 80px 0 rgba(27, 28, 29, 0.04), 0 4px 10px 0 rgba(27, 28, 29, 0.04)',
+      color: 'fg',
+      maxHeight: 'var(--available-height)',
+      '--menu-z-index': 'zIndex.dropdown',
+      zIndex: 'calc(var(--menu-z-index) + var(--layer-index, 0))',
+      overflow: 'hidden',
+      overflowY: 'auto',
+      _open: {
+        animationStyle: 'slide-fade-in',
+        animationDuration: 'fast',
+      },
+      _closed: {
+        animationStyle: 'slide-fade-out',
+        animationDuration: 'faster',
+      },
+    },
+    trigger: {
+      cursor: 'pointer',
+    },
+    item: {
+      textDecoration: 'none',
+      p: '12px',
+      textStyle: 'pre-body-6',
+      color: 'grey.8',
+      userSelect: 'none',
+      borderRadius: 'l1',
+      cursor: 'pointer',
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      textAlign: 'start',
+      position: 'relative',
+      flex: '0 0 auto',
+      outline: 0,
+      _disabled: {
+        layerStyle: 'disabled',
+      },
+    },
+    itemText: {
+      flex: '1',
+    },
+    itemGroupLabel: {
+      px: '2',
+      py: '1.5',
+      fontWeight: 'semibold',
+      textStyle: 'sm',
+    },
+    indicator: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: '0',
+    },
+    itemCommand: {
+      opacity: '0.6',
+      textStyle: 'xs',
+      ms: 'auto',
+      ps: '4',
+      letterSpacing: 'widest',
+    },
+    separator: {
+      height: '1px',
+      bg: 'bg.muted',
+      my: '1',
+      mx: '-1',
+    },
+  },
+  variants: {
+    size: {},
+  },
+  defaultVariants: {},
+})

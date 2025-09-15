@@ -1,0 +1,233 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('/fonts/pretendard/PretendardVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope/ManRope.ttf') format('truetype');
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/fonts/merriweather/MerriweatherVariable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  src: url('/fonts/nanum-myeongjo/NanumMyeongjo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  src: url('/fonts/nanum-myeongjo/NanumMyeongjo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  src: url('/fonts/nanum-myeongjo/NanumMyeongjo-ExtraBold.ttf')
+    format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/noto-sans/NotoSansKRVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  src: url('/fonts/noto-serif/NotoSerifKRVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('/fonts/garamond/GaramondVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/open-sans/OpenSansVariable.ttf') format('truetype');
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/PoppinsVariableFont.otf') format('opentype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/RobotoVariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('/fonts/spoqa-han-sans/SpoqaHanSansNeo-Regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('/fonts/spoqa-hansans-neo/SpoqaHanSansNeo-Medium.woff2')
+    format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('/fonts/spoqa-hansans-neo/SpoqaHanSansNeo-Bold.woff2')
+    format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('/fonts/spoqa-hansans-neo/SpoqaHanSansNeo-Light.woff2')
+    format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('/fonts/spoqa-hansans-neo/SpoqaHanSansNeo-Thin.woff2')
+    format('woff2');
+  font-weight: 100;
+  font-display: swap;
+}
+
+.editor-content {
+  p,
+  span {
+    white-space: normal;
+  }
+
+  & *:not(iframe) {
+    font-weight: normal;
+    all: revert;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 100% !important;
+    }
+  }
+
+  .player-unavailable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    font-size: 13px;
+    background: url(/img/meh7.png) 50% 65% no-repeat;
+  }
+
+  .player-unavailable .message {
+    text-align: left;
+    margin: 0 -5px 15px;
+    padding: 0 5px 14px;
+    border-bottom: 1px solid #888;
+    font-size: 19px;
+    font-weight: normal;
+  }
+
+  .player-unavailable a {
+    color: #167ac6;
+    text-decoration: none;
+  }
+
+  li {
+    display: list-item;
+  }
+}
