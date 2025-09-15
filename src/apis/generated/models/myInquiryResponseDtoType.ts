@@ -18,7 +18,7 @@ export type MyInquiryResponseDtoType =
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MyInquiryResponseDtoType = {
   POPUP: 'POPUP',
-  EVENT_PLACE: 'EVENT_PLACE',
+  EVENT_SPACES: 'EVENT_SPACES',
   SITE_USAGE: 'SITE_USAGE',
   ERROR_REPORT: 'ERROR_REPORT',
   OTHER: 'OTHER',

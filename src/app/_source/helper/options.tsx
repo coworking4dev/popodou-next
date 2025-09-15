@@ -37,7 +37,7 @@ export const INQUIRY_TYPE_OPTIONS: Record<
   AddInquiryRequestDtoTypeEnumType
 > = {
   POPUP: 'POPUP',
-  EVENT_PLACE: 'EVENT_PLACE',
+  EVENT_SPACES: 'EVENT_SPACES',
   SITE_USAGE: 'SITE_USAGE',
   ERROR_REPORT: 'ERROR_REPORT',
   OTHER: 'OTHER',
@@ -49,7 +49,7 @@ export const getInquiryTypeOptions = (): {
 }[] => {
   return [
     { label: 'Popup', value: INQUIRY_TYPE_OPTIONS.POPUP },
-    { label: 'Event/Spaces', value: INQUIRY_TYPE_OPTIONS.EVENT_PLACE },
+    { label: 'Event/Spaces', value: INQUIRY_TYPE_OPTIONS.EVENT_SPACES },
     { label: 'Site Usage', value: INQUIRY_TYPE_OPTIONS.SITE_USAGE },
     { label: 'Error Report', value: INQUIRY_TYPE_OPTIONS.ERROR_REPORT },
     { label: 'Other', value: INQUIRY_TYPE_OPTIONS.OTHER },

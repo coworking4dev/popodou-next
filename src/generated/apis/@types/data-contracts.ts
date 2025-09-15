@@ -1510,7 +1510,7 @@ export type PresignedRequestDtoFieldChoicesEnumType =
 
 export type AddInquiryRequestDtoTypeEnumType =
   | 'POPUP'
-  | 'EVENT_PLACE'
+  | 'EVENT_SPACES'
   | 'SITE_USAGE'
   | 'ERROR_REPORT'
   | 'OTHER' // X-enumName Values Missing
@@ -1523,7 +1523,7 @@ export type CategoryInfoColorEnumType = 'RED' | 'BLUE' | 'LIME' | 'GRAY' // X-en
 
 export type MyInquiryResponseDtoTypeEnumType =
   | 'POPUP'
-  | 'EVENT_PLACE'
+  | 'EVENT_SPACES'
   | 'SITE_USAGE'
   | 'ERROR_REPORT'
   | 'OTHER' // X-enumName Values Missing

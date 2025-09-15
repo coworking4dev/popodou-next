@@ -3,7 +3,7 @@ export const getInquiryTypeLabel = (type: string): string => {
   switch (type) {
     case 'POPUP':
       return 'Pop-ups'
-    case 'EVENT_PLACE':
+    case 'EVENT_SPACES':
       return 'Event/Spaces'
     case 'SITE_USAGE':
       return 'Site Usage'
