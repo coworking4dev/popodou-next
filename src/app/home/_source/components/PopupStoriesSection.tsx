@@ -78,7 +78,7 @@ export const PopupStoriesContent = ({
           router.push(ROUTES.JOURNAL)
         }}
       >
-        READ ALL
+        View All
       </Button>
     </Fragment>
   )
@@ -118,7 +118,7 @@ export const PopupStoriesSection = () => {
               router.push(ROUTES.JOURNAL)
             }}
           >
-            READ ALL
+            View All
           </Button>
         </Flex>
         <PopupStoriesContent stories={stories} />

@@ -85,7 +85,7 @@ export const PageLayoutFooter = ({ ...props }: FlexProps) => {
                 lineHeight={'1'}
                 mt={'3px'}
               >
-                Instargram
+                Instagram
               </Text>
               <ArrowUpRightIcon boxSize={'20px'} color={'accent.pink1'} />
             </Button>

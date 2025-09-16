@@ -57,7 +57,7 @@ export const IntroduceHeroSection = () => {
                 window.open(FOOTER_SNS_LINK.instagram, '_blank')
               }}
             >
-              Visit Our Instargram
+              Visit Our Instagram
               <ArrowUpRightIcon />
             </Button>
           </HStack>

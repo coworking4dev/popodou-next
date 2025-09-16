@@ -52,7 +52,7 @@ export const PopupGridSection = ({
               router.push(ROUTES.POPUPS + '?status=UPCOMING')
             }}
           >
-            READ ALL
+            View All
           </Button>
         </Flex>
         <PopupGridSectionContent popups={popups} />

@@ -65,7 +65,7 @@ export const MostLikedPopupSection = () => {
                 router.push(ROUTES.POPUPS + '?orderBy=MOST_LIKE')
               }}
             >
-              READ ALL
+              View All
             </Button>
           </Flex>
 
@@ -153,7 +153,7 @@ export const MostLikedPopupSection = () => {
                 router.push(ROUTES.POPUPS + '?orderBy=MOST_LIKE')
               }}
             >
-              READ ALL
+              View All
             </Button>
           </Flex>
         </VStack>

@@ -147,7 +147,7 @@ const PopupCategoryContent = ({
         }}
         w="100%"
       >
-        READ ALL
+        View All
       </Button>
     </Fragment>
   )
@@ -195,7 +195,7 @@ export const PopupByCategorySection = () => {
               router.push(ROUTES.POPUPS + '?category=' + activeCategory)
             }}
           >
-            READ ALL
+            View All
           </Button>
         </Flex>
 
