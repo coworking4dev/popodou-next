@@ -485,6 +485,16 @@ export const OAuthAdditionalInfoForm = ({ uuid, onNext }: Props) => {
       </SignupStepFormContent>
 
       <VStack w={'100%'} h={'100%'} p={'24px 28px'}>
+        {isSubmitted && !isValid && (
+          <Text
+            textStyle={'ko-caption-2'}
+            color={'grey.5'}
+            textAlign={'center'}
+          >
+            Complete all required fields to continue.
+          </Text>
+        )}
+
         <Button
           w={'100%'}
           size={'lg'}
