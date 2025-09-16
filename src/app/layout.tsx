@@ -62,7 +62,7 @@ export const metadata: Metadata = {
       'popodou brings wellness to life in ways that are sensory, intentional, and yours.',
     images: [
       {
-        url: '/images/new_og.png',
+        url: '/images/OG-Image.png',
         width: 600,
         height: 315,
         alt: 'Og Image Alt',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: `/images/new_og.png`,
+    images: `/images/OG-Image.png`,
     title: 'popodou',
     description:
       'popodou brings wellness to life in ways that are sensory, intentional, and yours.',

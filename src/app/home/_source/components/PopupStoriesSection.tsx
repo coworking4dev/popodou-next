@@ -100,7 +100,6 @@ export const PopupStoriesSection = () => {
       pb={'120px'}
       pt={{ base: '80px', md: '120px' }}
       px={{ base: '20px', sm: '40px', md: '0px' }}
-      bg={'secondary.2'}
       display={'flex'}
       alignItems={'center'}
       flexDir={'column'}

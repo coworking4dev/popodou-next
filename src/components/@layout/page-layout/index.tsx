@@ -34,7 +34,7 @@ export const PageLayout = ({
       minH={'100vh'}
       pos={'relative'}
       gridAutoColumns={'1fr'}
-      bg={'primary.1'}
+      bg={'common-white'}
       gridTemplateRows={{
         base: `${LAYOUT.HEADER.HEIGHT.MOBILE} minmax(calc(100vh - ${LAYOUT.HEADER.HEIGHT.MOBILE}), 1fr) auto`,
         sm: `${LAYOUT.HEADER.HEIGHT.TABLET} minmax(calc(100vh - ${LAYOUT.HEADER.HEIGHT.TABLET}), 1fr) auto`,
@@ -55,7 +55,7 @@ export const PageLayout = ({
         }}
         right={'0px'}
         zIndex={100}
-        bg={'primary.1'}
+        bg={'common-white'}
         w={'100%'}
         display="flex"
         justifyContent={'center'}

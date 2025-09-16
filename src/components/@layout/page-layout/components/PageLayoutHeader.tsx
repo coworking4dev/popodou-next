@@ -22,7 +22,7 @@ export const Logo = () => {
   return (
     <Link href={ROUTES.MAIN}>
       <LogoLogoIcon
-        color={'primary.5'}
+        color={'accent.mint2'}
         w={{ base: '120px', md: '140px' }}
         h={{ base: '22px', md: '26px' }}
       />

@@ -7,7 +7,7 @@ export const MY_IMAGES = {
   384: { src: '/images/384.png', alt: '384' },
   512: { src: '/images/512.png', alt: '512' },
   LOGO: { src: '/images/Logo.svg', alt: 'logo' },
-  NEW_OG: { src: '/images/new_og.png', alt: 'new-og' },
+  NEW_OG: { src: '/images/OG-Image.png', alt: 'new-og' },
   SOCIAL_APPLE: { src: '/images/social/apple.png', alt: 'apple' },
   SOCIAL_BLACK_APPLE: { src: '/images/social/apple-black.png', alt: 'apple' },
 

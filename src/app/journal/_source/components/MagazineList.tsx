@@ -114,7 +114,7 @@ export const MagazineList = () => {
         w={'100%'}
         justifyContent={{ base: 'flex-end', sm: 'space-between' }}
         gap={'12px'}
-        bg={'primary.1'}
+        bg={'common-white'}
         alignItems={{ base: 'start', md: 'end' }}
         zIndex={{ base: '100', md: '1' }}
       >

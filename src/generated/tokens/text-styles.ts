@@ -72,7 +72,7 @@ export const textStyles = {
       fontWeight: 700,
       fontSize: {
         base: '24px',
-        sm: '32px',
+        sm: '24px',
         md: '32px',
       },
       lineHeight: 1.4,
@@ -338,7 +338,7 @@ export const textStyles = {
       fontWeight: 800,
       fontSize: {
         base: '24px',
-        sm: '32px',
+        sm: '24px',
         md: '32px',
       },
       lineHeight: 1.4,

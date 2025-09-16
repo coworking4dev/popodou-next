@@ -26,13 +26,13 @@ export const IntroduceHeroSection = () => {
         <VStack gap={{ base: '32px', md: '56px' }} align={'start'}>
           <VStack gap={'32px'} align={'start'}>
             <LogoLogoIcon
-              color={'accent.pink1'}
+              color={'grey.0'}
               width={{ base: '300px', sm: '650px', md: '1300px' }}
               height={{ base: '55px', sm: '120px', md: '240px' }}
             />
             <Text
               textStyle={{ base: 'eng-heading-1', sm: 'eng-heading-1' }}
-              color={'accent.pink1'}
+              color={'grey.0'}
             >
               popodou is a curation platform that connects you with K-brands
               that
@@ -49,9 +49,9 @@ export const IntroduceHeroSection = () => {
               variant={'outline-grey'}
               bg={'transparent'}
               borderRadius={'100px'}
-              borderColor={'accent.pink1'}
+              borderColor={'grey.0'}
               htmlTranslate="no"
-              color={'accent.pink1'}
+              color={'grey.0'}
               textStyle={'eng-heading-3'}
               onClick={() => {
                 window.open(FOOTER_SNS_LINK.instagram, '_blank')

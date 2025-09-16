@@ -86,7 +86,7 @@ export const LoungeTemplate = () => {
         position={'sticky'}
         top={{ base: '0px', sm: '0px', md: '24px' }}
         zIndex={{ base: '100', md: '1' }}
-        bg={'primary.1'}
+        bg={'common-white'}
         w={'100%'}
         gap={'20px'}
         align={'start'}

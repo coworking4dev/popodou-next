@@ -44,7 +44,7 @@ export const MostLikedPopupSection = () => {
   }
 
   return (
-    <VStack bg={'accent.pink1'}>
+    <VStack bg={'common-white'}>
       <Container
         maxW={'1440px'}
         pt={{ base: '80px', md: '120px' }}

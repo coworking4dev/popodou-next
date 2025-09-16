@@ -89,7 +89,7 @@ export const LoungeCreatePostTemplate = () => {
         top={{ base: '0px', sm: '0px', md: '24px' }}
         zIndex={{ base: '100', md: '1' }}
         alignItems={{ base: 'start', md: 'end' }}
-        bg={'primary.1'}
+        bg={'common-white'}
         gap={'20px'}
       >
         <Text textStyle={'ko-display-4'}>New Post</Text>

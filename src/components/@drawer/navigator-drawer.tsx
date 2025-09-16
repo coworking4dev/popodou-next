@@ -54,7 +54,7 @@ export const NavigatorDrawer = (
             minH={'80px'}
           >
             <Drawer.Title title="Navigator">
-              <LogoLogoIcon color={'primary.5'} w={'120px'} h={'22px'} />
+              <LogoLogoIcon color={'accent.mint2'} w={'120px'} h={'22px'} />
             </Drawer.Title>
             <Drawer.CloseTrigger asChild>
               <IconButton w={'40px'} h={'40px'} variant={'ghost-primary'}>

@@ -156,7 +156,7 @@ export const PopupsTemplate = () => {
         transition={'transform 0.3s ease'}
         justifyContent={'space-between'}
         gap={{ base: '20px', sm: '12px' }}
-        bg={'primary.1'}
+        bg={'common-white'}
         alignItems={{ base: 'start', md: 'end' }}
         flexDir={{ base: 'column', md: 'row' }}
       >

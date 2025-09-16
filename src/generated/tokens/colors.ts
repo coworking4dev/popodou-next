@@ -346,6 +346,36 @@ export const colorSchema = {
   'secondary.900': {
     value: '#2e2619',
   },
+  'mint.50': {
+    value: '#effaf6',
+  },
+  'mint.100': {
+    value: '#c8ede1',
+  },
+  'mint.200': {
+    value: '#a2e1cb',
+  },
+  'mint.300': {
+    value: '#8edac0',
+  },
+  'mint.400': {
+    value: '#7bd4b6',
+  },
+  'mint.500': {
+    value: '#68ceab',
+  },
+  'mint.600': {
+    value: '#55c8a0',
+  },
+  'mint.700': {
+    value: '#39b087',
+  },
+  'mint.800': {
+    value: '#339d79',
+  },
+  'mint.900': {
+    value: '#2d8a6a',
+  },
 }
 
 export const colors = {
@@ -755,6 +785,12 @@ export const colors = {
     value: {
       _light: '{colors.primary.800}',
       _dark: '{colors.primary.400}',
+    },
+  },
+  'accent.mint2': {
+    value: {
+      _light: '{colors.mint.500}',
+      _dark: '#ffffff',
     },
   },
 }

@@ -116,7 +116,7 @@ export const SpacesTemplate = () => {
         w={'100%'}
         justifyContent={'space-between'}
         gap={{ base: '20px', sm: '12px' }}
-        bg={'primary.1'}
+        bg={'common-white'}
         alignItems={{ base: 'start', md: 'end' }}
         transform={transform}
         transition={'transform 0.3s ease'}
