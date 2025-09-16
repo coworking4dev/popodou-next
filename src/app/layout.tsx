@@ -105,7 +105,7 @@ export default function RootLayout({
       <body>
         <ErrorBoundary>
           <AppProvider>
-            <ThemeProvider>
+            <ThemeProvider forcedTheme="light">
               <OverlayProvider>
                 {children}
                 <Toaster />
