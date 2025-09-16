@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
 
+import { useAlert } from '@/components/@modal/hooks/useAlert'
 import { FormHelper } from '@/components/form-helper'
 import { Button } from '@/components/ui/button'
 import { InputGroup } from '@/components/ui/input-group'
@@ -25,6 +26,8 @@ export const EmailVerificationForm = ({
   onNext: () => void
   setEmailToken: (token: string) => void
 }) => {
+  const { openAlert } = useAlert()
+
   const {
     mutateAsync: sendEmailForPasswordResetAsync,
     isPending: isSendEmailForPasswordResetLoading,
@@ -71,7 +74,13 @@ export const EmailVerificationForm = ({
         closeButton: true,
       })
     } catch (error) {
-      console.error(error)
+      console.log(error)
+
+      openAlert({
+        title: 'Error',
+        description: 'Failed to send verification code',
+        confirmLabel: 'OK',
+      })
     }
   }
 

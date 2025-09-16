@@ -58,10 +58,16 @@ export const SignupForm = ({
   >('idle')
 
   const [isCustomPhoneCode, setIsCustomPhoneCode] = useState(false)
+  const [hasTriedPasswordConfirm, setHasTriedPasswordConfirm] = useState(false)
+  const [duplicateEmailError, setDuplicateEmailError] = useState<string | null>(
+    null,
+  )
 
   const email = useWatch({ control, name: 'email' })
   const birthDate = useWatch({ control, name: 'birthDate' })
   const phoneCountryCode = useWatch({ control, name: 'phoneCountryCode' })
+  const _password = useWatch({ control, name: 'password' })
+  const _passwordConfirm = useWatch({ control, name: 'passwordConfirm' })
 
   const handleVerifyEmail = async () => {
     const isValid = await trigger(['email'])
@@ -84,7 +90,14 @@ export const SignupForm = ({
       })
       setVerifiyStatus('sending')
     } catch (error) {
-      console.error(error)
+      if (error instanceof Response) {
+        const data = await error.json()
+        if (data.errorCode === 'EXIST_EMAIL') {
+          setDuplicateEmailError(
+            'This email address is already registered. Please use a different email or try logging in.',
+          )
+        }
+      }
     }
   }
 
@@ -164,7 +177,7 @@ export const SignupForm = ({
             label={'Email Address'}
             isRequired
             message={{
-              error: errors.email?.message,
+              error: duplicateEmailError || errors.email?.message,
             }}
           >
             <VStack gap={'6px'} w={'100%'}>
@@ -174,7 +187,9 @@ export const SignupForm = ({
                     placeholder={'hello@popodou.com'}
                     size={'lg'}
                     disabled={verifiyStatus === 'success'}
-                    {...register('email')}
+                    {...register('email', {
+                      onChange: () => setDuplicateEmailError(null),
+                    })}
                   />
                 </InputGroup>
                 <Button
@@ -214,13 +229,16 @@ export const SignupForm = ({
             isRequired
             message={{
               error:
-                errors.password?.message || errors.passwordConfirm?.message,
+                errors.password?.message ||
+                (hasTriedPasswordConfirm ?
+                  errors.passwordConfirm?.message
+                : undefined),
             }}
           >
             <VStack gap={'6px'} w={'100%'}>
               <PasswordInput
                 placeholder={
-                  '8-20 characters with letters, numbers, and a special character.'
+                  '8–20 characters with letters, numbers, and a special character.'
                 }
                 size={'lg'}
                 {...register('password')}
@@ -228,7 +246,9 @@ export const SignupForm = ({
               <PasswordInput
                 placeholder={'Re-enter password'}
                 size={'lg'}
-                {...register('passwordConfirm')}
+                {...register('passwordConfirm', {
+                  onBlur: () => setHasTriedPasswordConfirm(true),
+                })}
               />
             </VStack>
           </FormHelper>
@@ -384,17 +404,28 @@ export const SignupForm = ({
         </VStack>
       </SignupStepFormContent>
       <VStack w={'100%'} h={'100%'} p={'24px 28px'}>
-        <Button
-          w={'100%'}
-          size={'lg'}
-          bg={'primary.5'}
-          disabled={isSubmitted && !isValid}
-          onClick={handleSubmit(onSubmit)}
-        >
-          <Text textStyle={'eng-body-5'} color={'grey.0'}>
-            Next
-          </Text>
-        </Button>
+        <VStack w={'100%'} gap={'8px'}>
+          {isSubmitted && !isValid && (
+            <Text
+              textStyle={'ko-caption-2'}
+              color={'grey.5'}
+              textAlign={'center'}
+            >
+              Complete all required fields to continue.
+            </Text>
+          )}
+          <Button
+            w={'100%'}
+            size={'lg'}
+            bg={'primary.5'}
+            disabled={isSubmitted && !isValid}
+            onClick={handleSubmit(onSubmit)}
+          >
+            <Text textStyle={'eng-body-5'} color={'grey.0'}>
+              Next
+            </Text>
+          </Button>
+        </VStack>
       </VStack>
     </VStack>
   )

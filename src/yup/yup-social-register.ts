@@ -1,36 +1,27 @@
-import dayjs from 'dayjs'
 import * as yup from 'yup'
 
 import { RegisterAdditionalInfoGender } from '@/apis/generated/models/registerAdditionalInfoGender'
 import { OauthRegisterAdditionalInfoType } from '@/generated/apis/@types/data-contracts'
 import { isBlank } from '@/utils/transformers'
 
+import { birthDateSchema, phoneNumberSchema } from './yup-common'
 import { addressInfoSchema, snsInfoSchema } from './yup-register'
 
 export const registerSocialUserSchema: yup.ObjectSchema<OauthRegisterAdditionalInfoType> =
   yup.object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    birthDate: yup
+    firstName: yup
       .string()
-      .test('is-valid-date', 'Invalid date', (value) => {
-        if (!value) return false
-        const [year, month, day] = value.split('-').map(Number)
-
-        if (year && month && day) {
-          return dayjs(`${year}-${month}-${day}`).isValid()
-        }
-
-        return false
-      })
-      .required(),
+      .trim()
+      .max(64, 'First name must be less than 64 characters')
+      .required('First name is required.'),
+    lastName: yup
+      .string()
+      .trim()
+      .max(64, 'Last name must be less than 64 characters')
+      .required('Last name is required.'),
+    birthDate: birthDateSchema,
     phoneCountryCode: yup.string().required(),
-    phoneNumber: yup
-      .string()
-      .min(10)
-      .max(11)
-      .matches(/^[0-9]+$/, 'Phone number must contain only numbers')
-      .required(),
+    phoneNumber: phoneNumberSchema,
     nickname: yup
       .string()
       .trim()

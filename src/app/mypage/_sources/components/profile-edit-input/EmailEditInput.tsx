@@ -12,8 +12,7 @@ export const EmailEditInput = ({ email }: { email: string }) => {
 
   const {
     control,
-    formState: { errors, isDirty },
-    handleSubmit,
+    formState: { errors },
   } = useForm<{
     email: string
   }>({
@@ -21,8 +20,6 @@ export const EmailEditInput = ({ email }: { email: string }) => {
       email,
     },
   })
-
-  console.log(email)
 
   return (
     <HStack w={'100%'} align={'center'}>

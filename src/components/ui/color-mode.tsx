@@ -10,6 +10,7 @@ import { ClientOnly, IconButton, Skeleton, Span } from '@chakra-ui/react'
 
 import { MoonIcon, SunIcon } from '@/generated/icons/MyIcons'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ColorModeProviderProps extends ThemeProviderProps {}
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
@@ -50,6 +51,7 @@ export function ColorModeIcon() {
     : <SunIcon color="black" />
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface ColorModeButtonProps extends Omit<IconButtonProps, 'aria-label'> {}
 
 export const ColorModeButton = React.forwardRef<

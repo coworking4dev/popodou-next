@@ -15,8 +15,8 @@ export const resetPasswordSchema = yup.object({
   password: passwordSchema.required(),
   passwordConfirm: yup
     .string()
-    .oneOf([yup.ref('password')], 'Passwords do not match')
-    .required(),
+    .oneOf([yup.ref('password')], "Passwords don't match.")
+    .required('Please confirm your password'),
 })
 
 export type ResetPasswordSchema = yup.InferType<typeof resetPasswordSchema>

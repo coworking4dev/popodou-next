@@ -143,7 +143,9 @@ const responseInterceptor: (
       !!clientCookie.get(COOKIE_KEYS.AUTH.REFRESH_TOKEN)
 
     if ((isInvalid || isUnAuthorized) && response instanceof Response) {
-      const data = await response.json()
+      // Clone the response to avoid "body stream already read" error
+      const responseClone = response.clone()
+      const data = await responseClone.json()
       showToast({
         type: 'error',
         description: data.message || data.errorCode,

@@ -93,6 +93,8 @@ export const PopupStoriesSection = () => {
     },
   })
 
+  console.log(stories)
+
   return (
     <Container
       pb={'120px'}

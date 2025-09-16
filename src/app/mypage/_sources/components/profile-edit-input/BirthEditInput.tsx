@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { HStack } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import dayjs from 'dayjs'
 import { useForm, useWatch } from 'react-hook-form'
 import * as yup from 'yup'
 
 import { BirthInput } from '@/app/signup/_source/component/BirthInput'
 import { FormHelper } from '@/components/form-helper'
+import { birthDateSchema } from '@/yup/yup-common'
 
 import { EditTriggerButton } from './EditTriggerButton'
 
@@ -25,19 +25,7 @@ export const BirthEditInput = ({ birthDate }: { birthDate: string }) => {
   }>({
     resolver: yupResolver(
       yup.object({
-        birthDate: yup
-          .string()
-          .test('is-valid-date', 'Invalid date', (value) => {
-            if (!value) return false
-            const [year, month, day] = value.split('-').map(Number)
-
-            if (year && month && day) {
-              return dayjs(`${year}-${month}-${day}`).isValid()
-            }
-
-            return false
-          })
-          .required('Birth Date is required'),
+        birthDate: birthDateSchema,
       }),
     ),
     defaultValues: {

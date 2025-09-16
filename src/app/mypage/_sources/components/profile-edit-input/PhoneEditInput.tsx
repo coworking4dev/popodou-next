@@ -9,6 +9,7 @@ import * as yup from 'yup'
 import { getCountryPhoneCodeOptions } from '@/app/_source/helper/options'
 import { CustomSelect } from '@/components/CustomSelect'
 import { FormHelper } from '@/components/form-helper'
+import { phoneNumberSchema } from '@/yup/yup-common'
 
 import { EditTriggerButton } from './EditTriggerButton'
 
@@ -41,15 +42,10 @@ export const PhoneEditInput = ({
     },
     resolver: yupResolver(
       yup.object({
-        phoneNumber: yup
-          .string()
-          .min(10)
-          .max(11)
-          .matches(/^[0-9]+$/, 'Phone number must contain only numbers')
-          .required(),
         phoneCountryCode: yup
           .string()
           .required('Phone Country Code is required'),
+        phoneNumber: phoneNumberSchema,
       }),
     ),
   })

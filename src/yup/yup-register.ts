@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import * as yup from 'yup'
 
 import { AddressInfo } from '@/apis/generated/models/addressInfo'
@@ -10,7 +9,12 @@ import { SnsInfoPlatform } from '@/apis/generated/models/snsInfoPlatform'
 import { RegisterAdditionalInfoType } from '@/generated/apis/@types/data-contracts'
 import { isBlank } from '@/utils/transformers'
 
-import { passwordSchema } from './yup-common'
+import {
+  birthDateSchema,
+  passwordConfirmSchema,
+  passwordSchema,
+  phoneNumberSchema,
+} from './yup-common'
 
 export const addressInfoSchema: yup.ObjectSchema<AddressInfo> = yup.object({
   country: yup.string().trim().required(),
@@ -86,40 +90,28 @@ export type RegisterEssentialUserSchema = Omit<
 
 export const registerEssentialUserSchema: yup.ObjectSchema<RegisterEssentialUserSchema> =
   yup.object({
-    firstName: yup.string().trim().required(),
-    lastName: yup.string().trim().required(),
-    birthDate: yup
-      .string()
-      .test('is-valid-date', 'Invalid date', (value) => {
-        if (!value) return false
-        const [year, month, day] = value.split('-').map(Number)
-
-        if (year && month && day) {
-          return dayjs(`${year}-${month}-${day}`).isValid()
-        }
-
-        return false
-      })
-      .required(),
-
-    email: yup.string().trim().email().required(),
-    emailToken: yup.string().required(),
-
-    password: passwordSchema.required(),
-    passwordConfirm: yup
-      .string()
-      .oneOf([yup.ref('password')], 'Passwords do not match')
-      .required(),
-
-    phoneCountryCode: yup.string().trim().required(),
-    phoneNumber: yup
+    firstName: yup
       .string()
       .trim()
-      .min(10)
-      .max(11)
-      .matches(/^[0-9]+$/, 'Phone number must contain only numbers')
-      .required(),
+      .max(64, 'First name must be less than 64 characters')
+      .required('First name is required.'),
+    lastName: yup
+      .string()
+      .trim()
+      .max(64, 'Last name must be less than 64 characters')
+      .required('Last name is required.'),
+    birthDate: birthDateSchema,
+    email: yup
+      .string()
+      .trim()
+      .email('Please enter a valid email address')
+      .required('Email address is required.'),
+    emailToken: yup.string().required(),
+    password: passwordSchema.required('Password is required.'),
+    passwordConfirm: passwordConfirmSchema,
 
+    phoneCountryCode: yup.string().trim().required(),
+    phoneNumber: phoneNumberSchema,
     isTermsAgreed: yup
       .boolean()
       .oneOf([true], 'You must agree to the terms of service')

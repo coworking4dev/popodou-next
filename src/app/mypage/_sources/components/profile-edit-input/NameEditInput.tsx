@@ -30,8 +30,16 @@ export const NameEditInput = ({
   }>({
     resolver: yupResolver(
       yup.object({
-        firstName: yup.string().required('First Name is required'),
-        lastName: yup.string().required('Last Name is required'),
+        firstName: yup
+          .string()
+          .trim()
+          .max(64, 'First name must be less than 64 characters')
+          .required('First name is required.'),
+        lastName: yup
+          .string()
+          .trim()
+          .max(64, 'Last name must be less than 64 characters')
+          .required('Last name is required.'),
       }),
     ),
     defaultValues: {
