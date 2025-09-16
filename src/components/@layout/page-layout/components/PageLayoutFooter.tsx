@@ -1,17 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 
-import {
-  Button,
-  Flex,
-  FlexProps,
-  HStack,
-  Text,
-  VStack,
-  chakra,
-} from '@chakra-ui/react'
-import { ArrowUpRightIcon as ArrowUpRightIconOriginal } from '@phosphor-icons/react/dist/ssr'
+import { Flex, FlexProps, HStack, Text, VStack } from '@chakra-ui/react'
 
 import { ROUTES } from '@/constants/routes'
 import { useGetCategoriesQuery } from '@/generated/apis/CategoryApi/CategoryApi.query'
@@ -21,8 +13,6 @@ import {
   FOOTER_SNS_LINK,
 } from '../constants/footer-constants'
 import { LogoLinkButton } from './LogoImage'
-
-const ArrowUpRightIcon = chakra(ArrowUpRightIconOriginal)
 
 export const PageLayoutFooter = ({ ...props }: FlexProps) => {
   const { data } = useGetCategoriesQuery()
@@ -67,8 +57,21 @@ export const PageLayoutFooter = ({ ...props }: FlexProps) => {
             </Text>
           </VStack>
 
-          <HStack gap={'12px'} w={{ base: '100%', sm: 'auto', md: 'auto' }}>
-            <Button
+          <HStack
+            gap={'12px'}
+            w={{ base: '100%', sm: 'auto', md: 'auto' }}
+            cursor={'pointer'}
+            onClick={() => {
+              window.open(FOOTER_SNS_LINK.instagram, '_blank')
+            }}
+          >
+            <Image
+              src={'/images/social/instagram.png'}
+              alt={'instagram'}
+              width={30}
+              height={30}
+            />
+            {/* <Button
               w={{ sm: 'auto', md: 'auto' }}
               variant={'outline-grey'}
               bg={'transparent'}
@@ -88,7 +91,7 @@ export const PageLayoutFooter = ({ ...props }: FlexProps) => {
                 Instagram
               </Text>
               <ArrowUpRightIcon boxSize={'20px'} color={'accent.pink1'} />
-            </Button>
+            </Button> */}
           </HStack>
         </VStack>
 
