@@ -73,6 +73,11 @@ export const NavigatorDrawer = (
               : <Link
                   href={accessToken ? ROUTES.MAIN : ROUTES.LOGIN}
                   my={'20px'}
+                  css={{
+                    '&:hover': {
+                      textDecoration: 'none',
+                    },
+                  }}
                 >
                   <Button size={'lg'} bg={'primary.5'}>
                     <Text textStyle={'eng-body-5'}>Log in</Text>
@@ -80,12 +85,28 @@ export const NavigatorDrawer = (
                 </Link>
               }
               {HEADER_NAVIGATOR_CONSTANTS.map((item) => (
-                <Link href={item.path} key={item.path} my={'20px'} ml={'4px'}>
+                <Link
+                  href={item.path}
+                  key={item.path}
+                  my={'20px'}
+                  ml={'4px'}
+                  css={{
+                    '&:hover': {
+                      textDecoration: 'none',
+                    },
+                  }}
+                >
                   <Text
                     textStyle={'eng-heading-5'}
                     cursor={'pointer'}
                     data-active={isActive(item.path)}
                     css={{
+                      '&:hover': {
+                        textDecoration: 'underline',
+                        textDecorationColor: 'primary.5',
+                        textDecorationThickness: '2px',
+                        textUnderlineOffset: '4px',
+                      },
                       '&[data-active="true"]': {
                         textDecoration: 'underline',
                         textDecorationColor: 'primary.5',

@@ -43,7 +43,7 @@ export const EditorContentBlock = ({ content, ...props }: Props) => {
             w={'100%'}
             height={'230px'}
             zIndex={90}
-            background={`linear-gradient(180deg, rgba(246, 243, 239, 0) 0%, #f3f2f1 100%)`}
+            background={`linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, var(--color-grey-0, #FFF) 100%)`}
           ></Box>
         )}
       </Box>

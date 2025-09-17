@@ -91,6 +91,13 @@ const DesktopHeaderContent = ({ isLogin }: { isLogin: boolean }) => {
                 color={item.path === ROUTES.ONLINE_POPUP ? 'grey.4' : 'grey.9'}
                 data-active={isActive(item.path)}
                 css={{
+                  '&:hover': {
+                    textDecoration: 'underline',
+                    textDecorationColor: 'primary.5',
+                    textDecorationThickness: '2px',
+                    textUnderlineOffset: '4px',
+                  },
+
                   '&[data-active="true"]': {
                     textDecoration: 'underline',
                     textDecorationColor: 'primary.5',
