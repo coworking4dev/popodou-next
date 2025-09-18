@@ -59,7 +59,7 @@ export const EditorContentBlock = ({ content, ...props }: Props) => {
               boxSize="24px"
               transform={isMoreView ? 'rotate(180deg)' : 'rotate(0deg)'}
             />
-            <Text>{isMoreView ? 'Less view' : 'More view'}</Text>
+            <Text>{isMoreView ? 'View Less' : 'View More'}</Text>
           </HStack>
         </Button>
       )}

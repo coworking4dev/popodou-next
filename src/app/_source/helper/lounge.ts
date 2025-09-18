@@ -28,7 +28,7 @@ export const getFeedItemBadgeStyle = (type: LoungeFeedDtoType['type']) => {
   return {
     color: 'grey.600',
     bg: 'grey.100',
-    label: 'Etc.',
+    label: 'Other',
   }
 }
 

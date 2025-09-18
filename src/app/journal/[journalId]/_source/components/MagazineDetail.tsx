@@ -144,7 +144,6 @@ export const MagazineDetailContainer = ({ journalId }: Props) => {
         h={'80px'}
         right={'0px'}
         p={'10px'}
-        bg={'secondary.1'}
         zIndex={99}
       >
         <Button width={'100%'} size={'lg'} onClick={onClickPurchase}>

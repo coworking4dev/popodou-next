@@ -16,6 +16,7 @@ import { LogoLogoIcon } from '@/generated/icons/MyIcons'
 
 import { HEADER_NAVIGATOR_CONSTANTS } from '../@layout/page-layout/constants/header-navigator-constants'
 import { BaseModalProps } from '../@modal/hooks/useAlert'
+import { Tooltip } from '../ui/tooltip'
 
 export const NavigatorDrawer = (
   props: BaseModalProps & { accessToken?: string },
@@ -84,41 +85,66 @@ export const NavigatorDrawer = (
                   </Button>
                 </Link>
               }
-              {HEADER_NAVIGATOR_CONSTANTS.map((item) => (
-                <Link
-                  href={item.path}
-                  key={item.path}
-                  my={'20px'}
-                  ml={'4px'}
-                  css={{
-                    '&:hover': {
-                      textDecoration: 'none',
-                    },
-                  }}
-                >
-                  <Text
-                    textStyle={'eng-heading-5'}
-                    cursor={'pointer'}
-                    data-active={isActive(item.path)}
+              {HEADER_NAVIGATOR_CONSTANTS.map((item) => {
+                if (item.path === ROUTES.ONLINE_POPUP) {
+                  return (
+                    <Tooltip
+                      key={item.path}
+                      content={'Coming soon'}
+                      contentProps={{
+                        css: { '--tooltip-bg': 'colors.accent.mint2' },
+                        color: 'white',
+                      }}
+                    >
+                      <Text
+                        my={'20px'}
+                        textStyle={'eng-heading-5'}
+                        cursor={'not-allowed'}
+                        htmlTranslate="no"
+                        color={'grey.4'}
+                      >
+                        {item.title}
+                      </Text>
+                    </Tooltip>
+                  )
+                }
+
+                return (
+                  <Link
+                    href={item.path}
+                    key={item.path}
+                    my={'20px'}
+                    ml={'4px'}
                     css={{
                       '&:hover': {
-                        textDecoration: 'underline',
-                        textDecorationColor: 'primary.5',
-                        textDecorationThickness: '2px',
-                        textUnderlineOffset: '4px',
-                      },
-                      '&[data-active="true"]': {
-                        textDecoration: 'underline',
-                        textDecorationColor: 'primary.5',
-                        textDecorationThickness: '2px',
-                        textUnderlineOffset: '4px',
+                        textDecoration: 'none',
                       },
                     }}
                   >
-                    {item.title}
-                  </Text>
-                </Link>
-              ))}
+                    <Text
+                      textStyle={'eng-heading-5'}
+                      cursor={'pointer'}
+                      data-active={isActive(item.path)}
+                      css={{
+                        '&:hover': {
+                          textDecoration: 'underline',
+                          textDecorationColor: 'primary.5',
+                          textDecorationThickness: '2px',
+                          textUnderlineOffset: '4px',
+                        },
+                        '&[data-active="true"]': {
+                          textDecoration: 'underline',
+                          textDecorationColor: 'primary.5',
+                          textDecorationThickness: '2px',
+                          textUnderlineOffset: '4px',
+                        },
+                      }}
+                    >
+                      {item.title}
+                    </Text>
+                  </Link>
+                )
+              })}
             </VStack>
           </Drawer.Body>
           <Drawer.Footer />

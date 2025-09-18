@@ -10,6 +10,7 @@ import { overlay } from 'overlay-kit'
 
 import { logout } from '@/actions/logout'
 import { NavigatorDrawer } from '@/components/@drawer/navigator-drawer'
+import { Tooltip } from '@/components/ui/tooltip'
 import { COOKIE_KEYS } from '@/constants/cookie-keys'
 import { ROUTES } from '@/constants/routes'
 import { useGetMyPageProfileQuery } from '@/generated/apis/MyPageApi/MyPageApi.query'
@@ -71,45 +72,70 @@ const DesktopHeaderContent = ({ isLogin }: { isLogin: boolean }) => {
     >
       <>
         <HStack gap={'36px'}>
-          {HEADER_NAVIGATOR_CONSTANTS.map((item) => (
-            <Link
-              href={item.path}
-              key={item.path}
-              onClick={(e) => {
-                if (item.path === ROUTES.ONLINE_POPUP) {
-                  e.preventDefault()
-                  return false
-                }
-              }}
-            >
-              <Text
-                textStyle={'eng-heading-5'}
-                cursor={
-                  item.path === ROUTES.ONLINE_POPUP ? 'not-allowed' : 'pointer'
-                }
-                htmlTranslate="no"
-                color={item.path === ROUTES.ONLINE_POPUP ? 'grey.4' : 'grey.9'}
-                data-active={isActive(item.path)}
-                css={{
-                  '&:hover': {
-                    textDecoration: 'underline',
-                    textDecorationColor: 'primary.5',
-                    textDecorationThickness: '2px',
-                    textUnderlineOffset: '4px',
-                  },
+          {HEADER_NAVIGATOR_CONSTANTS.map((item) => {
+            if (item.path === ROUTES.ONLINE_POPUP) {
+              return (
+                <Tooltip
+                  showArrow
+                  key={item.path}
+                  openDelay={300}
+                  closeDelay={300}
+                  contentProps={{
+                    css: { '--tooltip-bg': 'colors.accent.mint2' },
+                    color: 'white',
+                  }}
+                  content={'Coming soon'}
+                >
+                  <Text
+                    textStyle={'eng-heading-5'}
+                    cursor={'not-allowed'}
+                    htmlTranslate="no"
+                    color={'grey.4'}
+                    data-active={false}
+                  >
+                    {item.title}
+                  </Text>
+                </Tooltip>
+              )
+            }
 
-                  '&[data-active="true"]': {
-                    textDecoration: 'underline',
-                    textDecorationColor: 'primary.5',
-                    textDecorationThickness: '2px',
-                    textUnderlineOffset: '4px',
-                  },
+            return (
+              <Link
+                href={item.path}
+                key={item.path}
+                onClick={(e) => {
+                  if (item.path === ROUTES.ONLINE_POPUP) {
+                    e.preventDefault()
+                    return false
+                  }
                 }}
               >
-                {item.title}
-              </Text>
-            </Link>
-          ))}
+                <Text
+                  textStyle={'eng-heading-5'}
+                  cursor={'pointer'}
+                  htmlTranslate="no"
+                  color={'grey.9'}
+                  data-active={isActive(item.path)}
+                  css={{
+                    '&:hover': {
+                      textDecoration: 'underline',
+                      textDecorationColor: 'primary.5',
+                      textDecorationThickness: '2px',
+                      textUnderlineOffset: '4px',
+                    },
+                    '&[data-active="true"]': {
+                      textDecoration: 'underline',
+                      textDecorationColor: 'primary.5',
+                      textDecorationThickness: '2px',
+                      textUnderlineOffset: '4px',
+                    },
+                  }}
+                >
+                  {item.title}
+                </Text>
+              </Link>
+            )
+          })}
         </HStack>
       </>
       <HStack>

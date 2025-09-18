@@ -29,7 +29,7 @@ export const getCategoryBadgeStyle = (category: CategoryInfoType) => {
   }
 
   return {
-    label: category.categoryName || 'Etc.',
+    label: category.categoryName || 'Other',
     bg: 'grey.2',
     color: 'grey.7',
     ...style,

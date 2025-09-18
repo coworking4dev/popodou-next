@@ -73,7 +73,7 @@ export const SpaceInfoLine = ({ space }: Props) => {
                 window.open('https://forms.gle/AtBQjPwRqdcG4FLfA', '_blank')
               }}
             >
-              Join Inquiry
+              Send Inquiry
             </Button>
             <IconButton
               size="lg"
