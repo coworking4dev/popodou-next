@@ -22,6 +22,17 @@ import {
 } from '@/generated/apis/MagazineApi/MagazineApi.query'
 import { useGetMagazineDetailSuspenseQuery } from '@/generated/apis/MagazineApi/MagazineApi.suspenseQuery'
 
+const isValidUrl = (url: string | undefined) => {
+  if (!url) return false
+
+  try {
+    new URL(url)
+    return true
+  } catch (error) {
+    return false
+  }
+}
+
 interface Props {
   journalId: string
 }
@@ -36,6 +47,17 @@ export const MagazineDetailContainer = ({ journalId }: Props) => {
       refetchOnMount: false,
     },
   })
+
+  const onClickPurchase = () => {
+    if (isValidUrl(data?.data?.externalProductUrl)) {
+      window.open(data?.data?.externalProductUrl, '_blank')
+    } else {
+      showToast({
+        type: 'error',
+        description: 'Invalid URL',
+      })
+    }
+  }
 
   return (
     <Box position={'relative'}>
@@ -55,15 +77,7 @@ export const MagazineDetailContainer = ({ journalId }: Props) => {
           >
             <Text textStyle={'ko-display-3'}>{data?.data?.title}</Text>
             <HStack display={{ base: 'none', md: 'flex' }}>
-              <Button
-                size={'lg'}
-                onClick={() => {
-                  window.open(
-                    data?.data?.externalProductUrl ?? 'www.naver.com',
-                    '_blank',
-                  )
-                }}
-              >
+              <Button size={'lg'} onClick={onClickPurchase}>
                 PURCHASE
               </Button>
               <IconButton
@@ -133,16 +147,7 @@ export const MagazineDetailContainer = ({ journalId }: Props) => {
         bg={'secondary.1'}
         zIndex={99}
       >
-        <Button
-          width={'100%'}
-          size={'lg'}
-          onClick={() => {
-            window.open(
-              data?.data?.externalProductUrl ?? 'www.naver.com',
-              '_blank',
-            )
-          }}
-        >
+        <Button width={'100%'} size={'lg'} onClick={onClickPurchase}>
           PURCHASE
         </Button>
         <IconButton
