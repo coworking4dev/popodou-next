@@ -181,12 +181,6 @@ export const PostDetailTemplate = ({ postId }: { postId: string }) => {
           minHeight={{ base: 'unset', sm: '300px' }}
           color={'grey.8'}
         />
-        <Separator
-          orientation={'horizontal'}
-          color={'primary.2'}
-          height={'1px'}
-          w={'100%'}
-        />
         <If condition={photos.length > 0}>
           <SpaceGalleryList photos={photos} />
         </If>

@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import {
   Box,
@@ -29,6 +29,8 @@ export const LoungeTemplate = () => {
 
   const isMobile = useBreakpointValue({ base: true, sm: false })
 
+  const searchParams = useSearchParams()
+
   const [selectedFilter, setSelectedFilter] = useState<
     'ALL' | 'LOUNGE' | 'POPUPS' | 'JOURNAL'
   >('ALL')
@@ -54,6 +56,23 @@ export const LoungeTemplate = () => {
     refetch()
     window.scrollTo(0, 0)
   }, [selectedFilter])
+
+  useLayoutEffect(() => {
+    const tab = searchParams.get('tab') as string
+    if (tab && ['ALL', 'LOUNGE', 'POPUPS', 'JOURNAL'].includes(tab)) {
+      setSelectedFilter(tab as 'ALL' | 'LOUNGE' | 'POPUPS' | 'JOURNAL')
+    } else {
+      setSelectedFilter('ALL')
+    }
+  }, [searchParams])
+
+  const handleTabChange = (value: string) => {
+    const newTab = value as 'ALL' | 'LOUNGE' | 'POPUPS' | 'JOURNAL'
+    setSelectedFilter(newTab)
+    const newSearchParams = new URLSearchParams(searchParams.toString())
+    newSearchParams.set('tab', newTab)
+    router.push(`/lounge?${newSearchParams.toString()}`, { scroll: false })
+  }
 
   const transform = (() => {
     if (isMobile) {
@@ -109,9 +128,9 @@ export const LoungeTemplate = () => {
           w={{ base: '100%', sm: 'auto' }}
           variant={'enclosed'}
           value={selectedFilter}
-          onValueChange={({ value }) =>
-            setSelectedFilter(value as 'ALL' | 'LOUNGE' | 'POPUPS' | 'JOURNAL')
-          }
+          onValueChange={({ value }) => {
+            handleTabChange(value)
+          }}
         >
           <Tabs.List justifyContent={'space-between'}>
             <Tabs.Trigger value="ALL">All</Tabs.Trigger>

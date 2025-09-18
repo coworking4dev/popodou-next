@@ -51,6 +51,7 @@ export const EditorContent = memo(
           width="100%"
           className="editor-content"
           overflow={'hidden'}
+          whiteSpace={'pre-wrap'}
           borderRadius="0"
           dangerouslySetInnerHTML={{ __html: content || '' }}
           {...props}
