@@ -101,7 +101,6 @@ export const SpaceInfoLine = ({ space }: Props) => {
               {isMobile ?
                 <ShareNetworkIcon size={24} />
               : <LinkIcon size={24} />}
-              <LinkIcon size={24} />
             </IconButton>
           </HStack>
         </HStack>
