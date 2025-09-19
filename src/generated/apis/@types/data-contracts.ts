@@ -601,6 +601,8 @@ export interface GetPopupResponseDtoType {
    */
   viewCount: number
 
+  reservationFormUrl: string
+
   status: GetPopupListParamsStatusEnumType
 }
 

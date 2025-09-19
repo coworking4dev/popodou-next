@@ -49,7 +49,13 @@ export const PopupPriceBox = ({ popup }: Props) => {
           width={'100%'}
           size={'lg'}
           onClick={() => {
-            openProgramSelectionModal(popup?.optionsList || [])
+            if (!popup?.optionsList || popup?.optionsList.length === 0) {
+              window.open(popup?.reservationFormUrl, '_blank')
+            } else {
+              openProgramSelectionModal(popup?.optionsList || [], () => {
+                window.open(popup?.reservationFormUrl, '_blank')
+              })
+            }
           }}
         >
           Book Now
